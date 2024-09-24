@@ -1,0 +1,37 @@
+
+ GET http://localhost:3000/songs/all
+ 
+ ### 
+
+ POST http://localhost:3000/users
+ Content-Type: application/json
+
+{
+    "username": "henok",
+    "password": "h1234"
+}
+
+###
+GET http://localhost:3000/songs/all
+
+
+###
+GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/playlists/henok
+
+
+###
+DELETE http://localhost:3000/playlists/henok/31
+
+###
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+    "songId":1,
+    "username":"henok"
+}
+
+# DELETE  http://localhost:3000/playlists/henok/2
