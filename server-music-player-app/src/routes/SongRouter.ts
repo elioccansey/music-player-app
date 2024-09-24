@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as SongController from "../controller/SongController"; // Importing the controller using ES6 module syntax
+import * as SongController from "../controller/SongController";
 
 const router = Router();
 

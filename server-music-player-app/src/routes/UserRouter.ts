@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import * as UserController from '../controller/UserController';  // Import userController using ES6 syntax
+import { Router } from "express";
+import * as UserController from "../controller/UserController";
 
 const router = Router();
 
-router.post('/', UserController.login);
-router.post('/logout', UserController.logout);
+router.post("/", UserController.login);
+router.post("/logout", UserController.logout);
 
 export default router;

@@ -1,15 +1,15 @@
 import express, { Request, Response, NextFunction } from "express";
-import cors from "cors"; // Importing cors using ES6 module syntax
-import UserRouter from "./routes/UserRouter"; // Importing routers using ES6 syntax
-
+import cors from "cors";
+import UserRouter from "./routes/UserRouter";
+import SongRouter from "./routes/SongRouter";
 import PlaylistRouter from "./routes/PlayListRoute";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
-app.use("/user", UserRouter);
+app.use("/users", UserRouter);
+app.use("/songs", SongRouter);
 app.use("/playlists", PlaylistRouter);
 
 // Error handling middleware

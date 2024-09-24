@@ -1,4 +1,4 @@
-import Song  from './Song';
+import Song from "./Song";
 
 interface Playlist {
   songId: number;
@@ -11,27 +11,24 @@ let playlists: Playlist[] = [
   { songId: 4, username: "nahom" },
   { songId: 1, username: "nahom" },
   { songId: 2, username: "nahom" },
-  
+
   { songId: 2, username: "henok" },
   { songId: 4, username: "henok" },
-  { songId: 5, username: "henok" }
+  { songId: 5, username: "henok" },
 ];
 
 export class PlayList {
-  constructor(
-    public username: string,
-    public songId: number
-  ) {}
+  constructor(public username: string, public songId: number) {}
 
   static getPlayList(username: string): Playlist[] {
-    return playlists.filter(a => a.username === username);
+    return playlists.filter((a) => a.username === username);
   }
 
   static getPlayListDetails(username: string) {
     const songs = Song.getAllSongs();
 
-    return this.getPlayList(username).map(m => {
-      const song = songs.find(a => a.id === Number(m.songId));
+    return this.getPlayList(username).map((m) => {
+      const song = songs.find((a) => a.id === Number(m.songId));
       if (!song) {
         throw new Error(`No Song with Id: ${m.songId} Found`);
       }
@@ -39,20 +36,20 @@ export class PlayList {
         username: m.username,
         songId: m.songId,
         title: song.title,
-        url: song.url
+        url: song.url,
       };
     });
   }
 
   static addToPlayList(username: string, songId: number) {
-    const song = Song.getAllSongs().find(a => a.id === songId);
+    const song = Song.getAllSongs().find((a) => a.id === songId);
     if (!song) {
       throw new Error("Song does not exist");
     }
 
     const userPlaylist = this.getPlayList(username);
-    const songIndex = userPlaylist.findIndex(a => a.songId === songId);
-    
+    const songIndex = userPlaylist.findIndex((a) => a.songId === songId);
+
     if (songIndex < 0) {
       playlists.push({ songId, username });
       return this.getPlayListDetails(username);
@@ -62,8 +59,10 @@ export class PlayList {
   }
 
   static removeFromPlaylist(username: string, songId: number): Playlist {
-    const index = playlists.findIndex(a => a.username === username && a.songId === songId);
-    
+    const index = playlists.findIndex(
+      (a) => a.username === username && a.songId === songId
+    );
+
     if (index >= 0) {
       const removedSong = playlists[index];
       playlists.splice(index, 1);
