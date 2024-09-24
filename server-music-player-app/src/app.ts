@@ -21,3 +21,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({ isSuccess: false, message: "Page not found!!" });
 });
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`music player backend is running on port ==> ${PORT}`);
+});
