@@ -24,5 +24,5 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`music player backend is running on port ==> ${PORT}`);
+  console.log(`music player app is running on port ==> ${PORT}`);
 });
