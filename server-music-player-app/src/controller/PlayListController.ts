@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { PlayList } from "../model/playList";
+import { PlayList } from "../model/PlayList";
 
 export const getUserPlayList = (req: Request, res: Response): void => {
   const username = req.params.username;
