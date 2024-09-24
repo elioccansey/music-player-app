@@ -70,7 +70,6 @@ let songs: Song[] = [
   },
 ];
 
-
 // Define the Song class with types
 export default class SongClass {
   constructor(
