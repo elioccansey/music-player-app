@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as PlayListController from "../controller/PlayListController"; 
+import * as PlayListController from "../controller/PlayListController";
 const router = Router();
 
 router.get("/:username", PlayListController.getUserPlayList);

@@ -15,8 +15,5 @@ export const addToPlayList = (req: Request, res: Response): void => {
 export const removeFromPlaylist = (req: Request, res: Response): void => {
   const username = req.params.username;
   const songId = Number(req.params.songId);
-  res.json({
-    isSuccess: true,
-    message: `Song with Id: ${songId} deleted successfully from username: ${username}.`
-  });
+  res.json(PlayList.removeFromPlaylist(username, songId));
 };

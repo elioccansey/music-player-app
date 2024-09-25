@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Song } from '../../types/Song';
+import { PlaylistSong } from '../../types/PlayListSong';
 
 interface PlayerControlsProps {
     playlist: Song[];
-    removeFromPlaylist: (id: string) => void;
+    removeFromPlaylist: (songId: string) => Promise<void>;
 }
 
 const PlayerControls: React.FC<PlayerControlsProps> = ({ playlist, removeFromPlaylist }) => {
     const [currentSong, setCurrentSong] = useState<number>(0);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const handlePlay = () => {
-        // logic to play the song
+        if (audioRef.current) {
+            audioRef.current.src = playlist[currentSong].url; // Assuming each song has an audioUrl property
+            audioRef.current.play().catch(error => {
+                console.error('Error playing the song:', error);
+            });
+        }
     };
 
     const handlePause = () => {

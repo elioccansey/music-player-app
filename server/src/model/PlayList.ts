@@ -9,17 +9,17 @@ interface Playlist {
 
 let playlists: Playlist[] = [
   { songId: 3, username: "nahom" },
-  { songId: 4, username: "nahom" },
+  { songId: 4, username: "magdy" },
   { songId: 1, username: "nahom" },
   { songId: 2, username: "nahom" },
 
-  { songId: 2, username: "henok" },
+  { songId: 2, username: "magdy" },
   { songId: 4, username: "henok" },
-  { songId: 5, username: "henok" },
+  { songId: 5, username: "magdy" },
 ];
 
 export class PlayList {
-  constructor(public username: string, public songId: number) {}
+  constructor(public username: string, public songId: number) { }
 
   static getPlayList(username: string): Playlist[] {
     return playlists.filter((a) => a.username === username);
