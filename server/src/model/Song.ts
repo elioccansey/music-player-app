@@ -11,7 +11,7 @@ let songs: Song[] = [
     id: 1,
     title: "As It Was",
     releaseDate: "2022/04/01",
-    url: "../audio/as_it_was.mp3",
+    url: "http://localhost:3000/audio/as_it_was.mp3",
   },
   {
     id: 2,
@@ -75,7 +75,7 @@ export default class SongClass {
     public title: string,
     public artist: string,
     public url: string
-  ) {}
+  ) { }
 
   static getAllSongs(): Song[] {
     return songs;

@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { Song } from '../../types/Song';
-import { PlaylistSong } from '../../types/PlayListSong';
 
 interface PlayerControlsProps {
     playlist: Song[];
@@ -12,12 +11,16 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ playlist, removeFromPla
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const handlePlay = () => {
-        if (audioRef.current) {
-            audioRef.current.src = playlist[currentSong].url; // Assuming each song has an audioUrl property
-            audioRef.current.play().catch(error => {
-                console.error('Error playing the song:', error);
-            });
-        }
+
+        console.log(playlist[currentSong].url);
+        // console.log(playlist[currentSong].url);
+        // if (audioRef.current) {
+        //     audioRef.current.src = playlist[currentSong].url; // Assuming each song has an audioUrl property
+
+        //     audioRef.current.play().catch(error => {
+        //         console.error('Error playing the song:', error);
+        //     });
+        // }
     };
 
     const handlePause = () => {
@@ -35,6 +38,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ playlist, removeFromPla
     return (
         <div>
             <h3>Now Playing: {playlist[currentSong]?.title || "No song selected"}</h3>
+            {/* <audio ref={audioRef} src={`http://localhost:3000/audio/${playlist[currentSong].url}`} /> */}
             <button onClick={handlePrev}>Previous</button>
             <button onClick={handlePlay}>Play</button>
             <button onClick={handlePause}>Pause</button>

@@ -3,10 +3,12 @@ import cors from "cors";
 import UserRouter from "./routes/UserRouter";
 import SongRouter from "./routes/SongRouter";
 import PlaylistRouter from "./routes/PlayListRoute";
+import path from "path"
 
 const app = express();
 
 app.use(express.json());
+app.use("/audio", express.static(path.join(__dirname, "audio")))
 app.use(cors());
 app.use("/user", UserRouter);
 app.use("/songs", SongRouter);
