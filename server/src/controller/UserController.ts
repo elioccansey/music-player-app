@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { nanoid } from "nanoid";
 import User from "../model/User";
 
 export const login = (req: Request, res: Response): void => {
@@ -7,7 +8,7 @@ export const login = (req: Request, res: Response): void => {
   const user = User.findUser(username, password);
 
   if (user) {
-    const token = `${username}-${Date.now()}`;
+    const token = `${nanoid(16)}-${username}`;
     User.addSession(token, username);
     res.status(200).json({ token });
   } else {
