@@ -4,7 +4,6 @@ interface User {
   password: string;
 }
 
-// Define the users array with proper typing
 let users: User[] = [
   {
     username: "henok",

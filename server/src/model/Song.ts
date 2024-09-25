@@ -1,4 +1,4 @@
-// Define the Song interface
+
 interface Song {
   id: number;
   title: string;
@@ -6,7 +6,6 @@ interface Song {
   url: string;
 }
 
-// Define the songs array with proper typing
 let songs: Song[] = [
   {
     id: 1,
@@ -70,7 +69,6 @@ let songs: Song[] = [
   },
 ];
 
-// Define the Song class with types
 export default class SongClass {
   constructor(
     public id: number,
@@ -79,7 +77,6 @@ export default class SongClass {
     public url: string
   ) {}
 
-  // Static method to get all songs
   static getAllSongs(): Song[] {
     return songs;
   }

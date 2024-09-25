@@ -6,6 +6,7 @@ interface Playlist {
 }
 
 // Define the playlists array with proper typing
+
 let playlists: Playlist[] = [
   { songId: 3, username: "nahom" },
   { songId: 4, username: "nahom" },
@@ -44,7 +45,7 @@ export class PlayList {
   static addToPlayList(username: string, songId: number) {
     const song = Song.getAllSongs().find((a) => a.id === songId);
     if (!song) {
-      throw new Error("Song does not exist");
+      throw new Error(`No Song found either with username: ${username} or with Id: ${songId}`);
     }
 
     const userPlaylist = this.getPlayList(username);
@@ -54,7 +55,7 @@ export class PlayList {
       playlists.push({ songId, username });
       return this.getPlayListDetails(username);
     } else {
-      throw new Error("Song already exists!!!");
+      throw new Error(`Song with Id: ${songId} already exists.`);
     }
   }
 
@@ -68,7 +69,7 @@ export class PlayList {
       playlists.splice(index, 1);
       return removedSong;
     } else {
-      throw new Error("Invalid song id...!!!");
+      throw new Error(`Invalid song no song with Id: ${songId}.`);
     }
   }
 }

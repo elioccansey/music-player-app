@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import User from "../model/User"; // Assuming UserClass is the TypeScript class
+import User from "../model/User";
 
 export const login = (req: Request, res: Response): void => {
   const { username, password } = req.body;
