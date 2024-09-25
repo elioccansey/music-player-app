@@ -51,7 +51,7 @@ export class PlayList {
     const userPlaylist = this.getPlayList(username);
     const songIndex = userPlaylist.findIndex((a) => a.songId === songId);
 
-    if (songIndex < 0) {
+    if (songIndex === -1) {
       playlists.push({ songId, username });
       return this.getPlayListDetails(username);
     } else {

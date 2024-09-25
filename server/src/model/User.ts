@@ -20,7 +20,7 @@ let users: User[] = [
   {
     username: "magdy",
     password: "m1234",
-  }
+  },
 ];
 
 // Define the sessions object with proper typing
